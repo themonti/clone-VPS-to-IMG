@@ -44,8 +44,8 @@ sh backup-images-1.0.sh -c *vmdk* -d */dev/vda* -f iplist -u ssh_username -p ssh
 ```
 
 Para conversión Con VirtualBox de la imagen.
-```
-sh backup-images-1.0.sh  -d */dev/vda* -f iplist -u ssh_username -p ssh_password -t 1
+
+**sh backup-images-1.0.sh  -d __/dev/vda__ -f iplist -u ssh_username -p ssh_password -t 1**
 
 - */dev/vda*: Para saber el nombre del disco de tu VPS puedes ejecutar: _fdisk -l_
 ```
@@ -62,10 +62,8 @@ VBoxManage convertfromraw <ip_server>.raw new_name.vdi
 
 1.1 - 28/12/2017
 
-## Authors
-* Antonio Monteagudo 
 
 ## Acknowledgments
 
-Mis garadecimiento a Radovan Brezula, creador de este script: http://brezular.com/2015/06/04/cloning-remote-linux-machines/
+Mi agradecimiento a Radovan Brezula, creador de este script: http://brezular.com/2015/06/04/cloning-remote-linux-machines/
 
