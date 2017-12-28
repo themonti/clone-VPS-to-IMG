@@ -1,13 +1,13 @@
 # clone-VPS-to-IMG
 
-Script para *clonar un VPS* por _ssh_ desde Digital Ocean, Alibaba Cloud, Vultr, Linode, Scaleway, etc. y generar imagen para Virtualbox, VMWare, etc.
+Script para **clonar un VPS** por **ssh** desde __Digital Ocean, Alibaba Cloud, Vultr, Linode, Scaleway, etc.__ y generar imagen para __Virtualbox, VMWare, etc.__
 
 ## Getting Started
 
 Este script es una modificación del Script creado por Radovan Brezula (http://brezular.com/2015/06/04/cloning-remote-linux-machines/) para poder clonar un VPS desde Digital Ocean, Alibaba Cloud, Vultr, Linode, Scaleway, etc.
 
 
-Se ha modificado el script para permitir la extracción desde discos ```/dev/*v*da```.
+Se ha modificado el script para permitir la extracción desde discos ```/dev/vda```.
 
 
 
@@ -31,25 +31,27 @@ O bien, para convertir las imagenes es requerido VirtualBox.
 
 ## Running 
 
-* Clona el respositorio
-* Edita el fichero de texto ```iplist```y añade las IP de los VPS que deseas clonar. _(Nota: Una IP por fila.)_
+* Clona el respositorio.
+* Edita el fichero de texto ```iplist```y añade las IP de los VPS que deseas clonar. _(Nota: Una IP por fila)_
 * Ejecutar: 
 
 Para conversión desde el script de la imagen.
 ```
-sh backup-images-1.0.sh -c *vmdk* -d */dev/vda* -f iplist -u ssh_username -p ssh_password -t 1
+sh backup-images-1.0.sh -c vmdk -d /dev/vda -f iplist -u ssh_username -p ssh_password -t 1
 
-- *vmdk*: puedes reemplazar por *vdi*, *vhd*., etc. 
-- */dev/vda*: Para saber el nombre del disco de tu VPS puedes ejecutar: _fdisk -l_
+- vmdk: puedes reemplazar por vdi, vhd., etc. 
+- /dev/vda: Para saber el nombre del disco de tu VPS puedes ejecutar: fdisk -l
 ```
 
 Para conversión Con VirtualBox de la imagen.
-
-**sh backup-images-1.0.sh  -d __/dev/vda__ -f iplist -u ssh_username -p ssh_password -t 1**
-
-- */dev/vda*: Para saber el nombre del disco de tu VPS puedes ejecutar: _fdisk -l_
 ```
+sh backup-images-1.0.sh  -d /dev/vda -f iplist -u ssh_username -p ssh_password -t 1
+
+- /dev/vda: Para saber el nombre del disco de tu VPS puedes ejecutar: fdisk -l
+```
+
 A continuación se descomrpime la imagen y se convierte con VirtualBox
+
 ```
 gunzip <ip_server>.raw.gz
 VBoxManage convertfromraw <ip_server>.raw new_name.vdi
@@ -61,6 +63,7 @@ VBoxManage convertfromraw <ip_server>.raw new_name.vdi
 ## Versioning
 
 1.1 - 28/12/2017
+
 
 
 ## Acknowledgments
